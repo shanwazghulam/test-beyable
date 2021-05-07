@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	background-color: #424242;
+	font-family: 'Poppins', sans-serif;
+}
+
+/* HEADER*/
+header {
+	background-color: black;
+	height: 65px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.logo {
+	width: 30%;
+	margin: 5px;
+}
+
+.logo img {
+	width: 100%;
+}
+
+.btn {
+	border: solid 2px #f29301;
+	color: #f29301;
+	padding: 10px 20px;
+	margin: 5px;
+	transition: all 0.5s;
+	font-family: 'Poppins', sans-serif;
+	cursor: pointer;
+}
+
+.btn:hover {
+	color: white;
+	background-color: #f29301;
+}
+
+/*HERO PAGE*/
+.hero {
+	height: 90vh;
+	background-image: url(images/hero.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/*OVERLAY*/
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(3px);
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+/*POPUP*/
+.popup {
+	position: relative;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 80%;
+	height: 60%;
+	max-width: 759px;
+	max-height: 535px;
+	background-color: white;
+	box-shadow: 0px 0px 20px #000000ad;
+}
+
+/*IMAGE POPUP*/
+.container-img {
+	position: relative;
+	height: 100%;
+}
+
+/*BARRE VERTICALE*/
+.container-img:before {
+	position: absolute;
+	content: '';
+	height: 130px;
+	width: 5px;
+	background-color: #f29301;
+	left: -5px;
+	top: 50px;
+	transition: all 0.5s;
+}
+
+.container-img:after {
+	position: absolute;
+	content: '';
+	height: 130px;
+	width: 5px;
+	background-color: #f29301;
+	right: -5px;
+	bottom: 50px;
+	transition: all 0.5s;
+}
+
+.popup img {
+	height: 100%;
+}
+
+/*CONTENT POPUP*/
+
+.content {
+	width: 42%;
+}
+
+.title-small {
+	position: relative;
+	font-size: 20px;
+	font-weight: bold;
+	color: #f29301;
+	margin-bottom: 50px;
+}
+
+.title-small:before {
+	content: '';
+	position: absolute;
+	background-color: #f29301;
+	height: 2px;
+	width: 70px;
+	top: 40px;
+	transition: all 0.5s;
+}
+
+.title-big {
+	font-size: 27px;
+	font-weight: bold;
+}
+
+.content p {
+	font-size: 20px;
+}
+
+.popup .btn {
+	background-color: white;
+	padding: 5% 19%;
+	font-size: 18px;
+}
+
+.popup .btn:hover {
+	background-color: #f29301;
+	color: white;
+}
+
+/*CLOSE POPUP*/
+.close {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	color: gray;
+	font-size: 1.5rem;
+	cursor: pointer;
+	transition: all 0.5s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 35px;
+	width: 35px;
+}
+
+.close:hover {
+	color: black;
+	transform: rotate(90deg);
+}
+
+/*Animation*/
+@keyframes zoom {
+	from {
+		transform: scale(0);
+	}
+
+	to {
+		transform: scale(1);
+	}
+}
+
+@keyframes dezoom {
+	from {
+		transform: scale(1);
+	}
+
+	to {
+		transform: scale(0);
+	}
+}
+
+.zoom {
+	animation: zoom 0.7s forwards;
+}
+
+.dezoom {
+	animation: dezoom 0.7s forwards;
+}
+
+/*EFFETS BARRE*/
+.popup:hover .container-img:before {
+	top: 300px;
+}
+
+.popup:hover .container-img:after {
+	bottom: 300px;
+}
+
+.popup:hover .title-small:before {
+	width: 155px;
+}
+
+/*MEDIA QUERIE*/
+@media screen and (max-width: 700px) {
+	.btn {
+		padding: 10px;
+	}
+
+	.container-img {
+		display: none;
+	}
+
+	.overlay {
+		align-items: flex-end;
+	}
+
+	.content {
+		width: 100%;
+		height: 60%;
+		padding: 25px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.popup {
+		width: 100%;
+		height: 70%;
+		background-image: url("images/popup-mobile.png");
+		background-repeat: no-repeat;
+		background-size: 100%;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+
+	.popup .btn {
+		padding: 10px 20px;
+		margin: 0;
+		background-color: #f29301;
+		color: white;
+		width: 100%;
+	}
+
+	.title-small {
+		position: absolute;
+		top: 20%;
+		color: white;
+		font-size: 1rem;
+	}
+
+	.title-small:before {
+		background-color: white;
+	}
+
+	.title-big {
+		font-size: 22px;
+	}
+
+	.content p {
+		font-size: 1rem;
+	}
+
+	.close {
+		color: white;
+		background-color: rgba(0, 0, 0, 0.3)
+	}
+}
